@@ -21,10 +21,11 @@ blurb_cache = {}
 # ----------------------------
 # Duke AI Gateway Client Setup
 # ----------------------------
-client = OpenAI(
-    api_key=DUKE_API_KEY,
-    base_url="https://litellm.oit.duke.edu/v1"
-)
+client = None
+if DUKE_API_KEY:
+    client = OpenAI(
+        api_key=DUKE_API_KEY,
+        base_url="https://litellm.oit.duke.edu/v1"
 
 # ----------------------------
 # FastAPI App
@@ -66,6 +67,8 @@ def build_simple_blurb(building):
 # LLM Blurb Generator
 # ----------------------------
 def generate_llm_blurb(building, tour_type: Optional[str] = None):
+    if not client:
+        raise Exception("No API key available")
     facts = building.get("static_facts", {})
 
     # Tour-type customization
