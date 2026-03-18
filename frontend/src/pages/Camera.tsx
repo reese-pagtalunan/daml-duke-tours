@@ -62,9 +62,12 @@ const Camera = () => {
       });
 
       const data = await res.json();
+      console.log("Backend response:", data); // add this
+
 
       // Save blurb to localStorage so Chat can pick it up
       localStorage.setItem("pending_blurb", data.blurb);
+      console.log("Saved to localStorage:", data.blurb); // add this
       navigate("/");
     } catch (err) {
       console.error("Error fetching blurb:", err);
