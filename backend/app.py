@@ -14,7 +14,7 @@ load_dotenv()
 DUKE_API_KEY = os.getenv("DUKE_AI_API_KEY")
 
 if not DUKE_API_KEY:
-    raise ValueError("DUKE_AI_API_KEY not found. Check your .env file.")
+    print("Warning: DUKE_AI_API_KEY not found. Falling back to simple blurbs.")
 
 blurb_cache = {}
 
