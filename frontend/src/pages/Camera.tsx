@@ -65,7 +65,7 @@ const Camera = () => {
 
       // Save blurb to localStorage so Chat can pick it up
       localStorage.setItem("pending_blurb", data.blurb);
-      navigate(-1);
+      navigate("/");
     } catch (err) {
       console.error("Error fetching blurb:", err);
     } finally {
