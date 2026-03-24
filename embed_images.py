@@ -11,16 +11,16 @@ processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Mapping folder names to building IDs in the Database
 BUILDING_MAP = {
-    "perkins":    1,
-    "chapel":     2,
-    "bryan":      3,
-    "wilson_gym":     4,
-    "wilkinson":  5,
-    "wu":         6,
+    "perkins_library":    1,
+    "duke_chapel":     2,
+    "bryan_center":      3,
+    "wilson_recreation_center":     4,
+    "wilkinson_building":  5,
+    "broadhead_center":         6,
 }
 
 # Connecting to Postgres
-conn = psycopg2.connect("postgresql://postgres:password@localhost:5432/postgres")
+conn = psycopg2.connect("postgresql://postgres:password@localhost:5433/postgres")
 register_vector(conn)
 cur = conn.cursor()
 

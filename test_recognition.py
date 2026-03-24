@@ -10,7 +10,7 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Connect to DB
-conn = psycopg2.connect("postgresql://postgres:password@localhost:5432/postgres")
+conn = psycopg2.connect("postgresql://postgres:password@localhost:5433/postgres")
 register_vector(conn)
 cur = conn.cursor()
 
